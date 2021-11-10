@@ -1,10 +1,21 @@
-<h1>Welocme to SmartTalks</h1>
-
-<ul>
-    <% @articles.each do |article| %>
-        <li>
-            <h3><a href="<%=article_path(article)%>"><%= article.title %></a></h3>
-        </li>
-    <%end%>
-</ul>
+<div class="container">  
+    <div class="container">
+        <h1 class="display-5 my-5">Welcome to <strong>SmartTalks</strong><i class="bi bi-lightbulb"></i></h1>
+    </div>
+    <hr>
+    <div class="show-cards">
+        <% @articles.each do |article| %>
+            
+                <div class="card" style="width: 18rem;">
+                    <img src="https://source.unsplash.com/400x300/?technology,blog<%=article.id%>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= article.title %></h5>
+                        <p class="card-text"><span class="fw-light">Last update:</span> at <%= article.updated_at.strftime("%I:%M %p") %> on <%= article.updated_at.strftime("%d/%m/%Y") %></p>
+                        <a href="<%= article_path(article) %>" class="btn btn-outline-secondary">Full Article</a>
+                    </div>
+                </div>
+            
+        <%end%>
+    </div>
+</div>
 
