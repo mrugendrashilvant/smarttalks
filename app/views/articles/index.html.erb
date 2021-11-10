@@ -1,2 +1,10 @@
-<h1>Hello Mrug</h1>
-<p>Find me in app/views/articles/index.html.erb</p>
+<h1>Welocme to SmartTalks</h1>
+
+<ul>
+    <% @articles.each do |article| %>
+        <li>
+            <h3><a href="<%=article_path(article)%>"><%= article.title %></a></h3>
+        </li>
+    <%end%>
+</ul>
+
