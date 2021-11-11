@@ -1,2 +1,15 @@
-<h3><%= @article.title %></h3>
-<p><%= @article.content %></p>
+<div class="container my-5">
+    <div class="image img-thumbnail">
+        <img src="https://source.unsplash.com/1600x500?technology/">
+    </div>
+    <hr>
+    <div class="content">
+        <h3 class="fw-light"><%= @article.title %></h3>
+        <hr>
+        <p><%= @article.content %></p>
+    </div>
+    <div class="content my-3 d-grid gap-2 d-md-flex justify-content-md-start">
+        <a href="<%= edit_article_path(@article) %>" class="btn btn-outline-success me-md-2" ><i class="bi bi-pencil"></i> Edit</a>
+        <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+    </div>
+</div>
