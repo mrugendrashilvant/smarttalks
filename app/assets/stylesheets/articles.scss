@@ -9,6 +9,30 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-evenly;
+        align-content:space-around;
     }
     
+}
+.new {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    .left {
+        position: relative;
+        width: 50%;
+        height: 70vh;
+
+        .text {
+            height: 50vh;
+        }
+    }
+    .right {
+        width: 50%;
+        height: 100vh;
+        img{
+            padding: 20px 10px;
+            height: auto;
+            width: 100%;
+        }
+    }
 }

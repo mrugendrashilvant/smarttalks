@@ -1,12 +1,13 @@
 <div class="container">  
-    <div class="container">
-        <h1 class="display-5 my-5">Welcome to <strong>SmartTalks</strong><i class="bi bi-lightbulb"></i></h1>
+    <div class="container text-center">
+        <h1 class="display-5 my-3">Welcome to <strong>SmartTalks</strong><i class="bi bi-lightbulb"></i></h1>
+        <p class="fw-light">Place where we talk only about <strong>#Tech</strong></p>
     </div>
     <hr>
     <div class="show-cards">
         <% @articles.each do |article| %>
             
-                <div class="card" style="width: 18rem;">
+                <div class="card my-2" style="width: 18rem;">
                     <img src="https://source.unsplash.com/400x300/?technology,blog<%=article.id%>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><%= article.title %></h5>
@@ -14,7 +15,6 @@
                         <a href="<%= article_path(article) %>" class="btn btn-outline-secondary">Full Article</a>
                     </div>
                 </div>
-            
         <%end%>
     </div>
 </div>
