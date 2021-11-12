@@ -24,23 +24,22 @@
             <h5 class="fw-light">Comments <span class="badge bg-dark rounded-pill"><%= @article.comments.length - 1 %></span></h5>
             <% @article.comments.each do |comment| %>
 
-            <% unless comment.id.nil? %>
-                <div class="media">
-                    <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar<%=comment.id%>.png" alt=""></a>
-                    <div class="media-body mx-5">
-                        <h4 class="media-heading"><%= comment.name %></h4>
-                        <p><%= comment.body %></p>
-                        <ul class="list-unstyled list-inline media-detail pull-left">
-                            <li><i class="bi bi-calendar3"></i> <%= comment.created_at.strftime('%d/%m/%Y') %> at <%= comment.updated_at.strftime('%H:%M %p') %></li>
-                        </ul>
+                <% unless comment.id.nil? %>
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar<%=comment.id%>.png" alt=""></a>
+                        <div class="media-body mx-5">
+                            <h4 class="media-heading"><%= comment.name %></h4>
+                            <p><%= comment.body %></p>
+                            <ul class="list-unstyled list-inline media-detail pull-left">
+                                <li><i class="bi bi-calendar3"></i> <%= comment.created_at.strftime('%d/%m/%Y') %> at <%= comment.updated_at.strftime('%H:%M %p') %></li>
+                            </ul>
+                        </div>
+                        <div class="icons">
+                            <h3><%= link_to [comment.article, comment], method: :delete do %> <i class="md bi bi-trash-fill"></i><%end%></h3>
+                        </div>
                     </div>
-                </div>
-            <%end%>
-
-<%# .strftime("%d/%m/%Y") %>
+                <%end%>
             <%end%>
         </div>
     <%end%>
-    
-    
 </div>
