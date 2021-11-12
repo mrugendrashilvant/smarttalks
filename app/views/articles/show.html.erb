@@ -7,9 +7,51 @@
         <h3 class="fw-light"><%= @article.title %></h3>
         <hr>
         <p><%= @article.content %></p>
-    </div>
-    <div class="content my-3 d-grid gap-2 d-md-flex justify-content-md-start">
+    
         <a href="<%= edit_article_path(@article) %>" class="btn btn-outline-success me-md-2" ><i class="bi bi-pencil"></i> Edit</a>
         <%= link_to "Delete", article_path(@article), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
     </div>
+    <%# Adding comments form here %>
+    <hr>
+    <div class="content my-2">
+        <%= form_with model: [@article, @article.comments.build] do |form| %>
+            <div class=" mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Name:</label>
+                <i class="bi bi-person"></i><%= form.text_field :name, class: 'form-control' %>
+
+                <label for="exampleFormControlInput1" class="form-label">Comment:</label>
+                <%= form.text_area :body, class: 'form-control' %>
+            </div>
+            <div>
+                <%= form.submit "Add Comment", class: "btn btn-outline-success" %>
+            </div>
+        <%end%>
+    </div>
+    <hr>
+    <%# Showing comments %>
+    <% if @article.comments.empty? %>
+        <p class="fw-light">No comments yet. Be first one to comment...</p>
+    <%else%>
+        <div class="content my-2">
+            <h5 class="fw-light">Comments <span class="badge bg-dark rounded-pill"><%= @article.comments.length %></span></h5>
+            <hr>
+            <% @article.comments.each do |comment| %>
+
+
+                <div class="media">
+                    <a class="pull-left" href="#"><img class="media-object" src="https://bootdey.com/img/Content/avatar/avatar<%=comment.id%>.png" alt=""></a>
+                    <div class="media-body">
+                        <h4 class="media-heading"><%= comment.name %></h4>
+                        <p><%= comment.body %></p>
+                        <ul class="list-unstyled list-inline media-detail pull-left">
+                            <li><i class="bi bi-calendar3"></i> <%= comment.updated_at %></li>
+                        </ul>
+                    </div>
+                </div>
+
+<%# .strftime("%d/%m/%Y") %>
+            <%end%>
+        </div>
+    <%end%>
+    
 </div>

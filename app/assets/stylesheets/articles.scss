@@ -61,3 +61,33 @@ nav {
         border-radius: 5px;
     }
 }
+.media {
+	border-top:1px dashed #DDDDDD;
+	padding:20px 0;
+	margin:0;
+
+    img {
+        max-width: 100px;
+    }
+    h4{
+        margin: 0 0 10px;
+        span{
+            font-size:14px;
+            float:right;
+            color:#999999;
+        }
+    }
+    p{
+        margin-bottom:15px;
+	    text-align:justify;
+    }
+    .media-detail{
+        margin: 0;
+        li{
+            color:#AAAAAA;
+            font-size:12px;
+            padding-right: 10px;
+            font-weight:600;
+        }
+    }
+}
