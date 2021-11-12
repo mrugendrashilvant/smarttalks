@@ -1,14 +1,11 @@
-<%= form_with model: [article, article.comments.build] do |form| %>
+<%= form_with model: [@article, @article.comments.build] do |form| %>
     <div class="content mb-3">
         <label for="exampleFormControlInput1" class="form-label">Name:</label>
         <%= form.text_field :name, class: 'form-control' %>
 
-    </div>
-    <div class="content mb-3">
         <label for="exampleFormControlInput1" class="form-label">Comment:</label>
-        <%= form.text_field :body, class: 'form-control' %>
-    </div>
-    <div>
+        <%= form.text_area :body, class: 'form-control' %>
+        <br>
         <%= form.submit "Add Comment", class: "btn btn-outline-success" %>
     </div>
 <%end%>

@@ -15,9 +15,7 @@
         <% @article.errors.full_messages_for(:content).each do |message| %>
             <div><%= message %></div>
         <%end%>
-    </div>
-    <hr>
-    <div>
+        <hr>
         <%= form.submit "Save", class: "btn btn-success" %>
     </div>
 <%end%>
