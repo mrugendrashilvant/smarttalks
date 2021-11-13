@@ -12,7 +12,23 @@
         <li class="nav-item">
           <a class="nav-link" href="#"><i class="bi bi-list"></i> Show All</a>
         </li>
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= edit_user_registration_path %>">Edit Profile</a>
+        </li>
+        <li class="nac-item"> 
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class=>"nav-link" %>
+        </li>
+        <%else%>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_registration_path %>">SignUp</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= new_user_session_path %>">Login</a>
+        </li>
+        <%end%>
       </ul>
+      
     </div>
   </div>
 </nav>

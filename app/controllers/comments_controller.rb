@@ -1,24 +1,22 @@
 class CommentsController < ApplicationController
+        before_action :authenticate_user!, except: :create
+        def create
+            if request.post? 
+                @article = Article.find(params[:article_id])
+                @comment = @article.comments.create(comment_params)
+                redirect_to article_path(@article)
+            end
+        end
 
-    http_basic_authenticate_with name: "admin", password: "admin", only: :destroy
-
-    def create
-        if request.post? 
+        def destroy
             @article = Article.find(params[:article_id])
-            @comment = @article.comments.create(comment_params)
+            @comment = @article.comments.find(params[:id])
+            @comment.destroy 
             redirect_to article_path(@article)
         end
-    end
 
-    def destroy
-        @article = Article.find(params[:article_id])
-        @comment = @article.comments.find(params[:id])
-        @comment.destroy 
-        redirect_to article_path(@article)
-    end
-
-    private 
-    def comment_params
-        params.require(:comment).permit(:name, :body)
-    end
+        private 
+        def comment_params
+            params.require(:comment).permit(:name, :body)
+        end
 end
