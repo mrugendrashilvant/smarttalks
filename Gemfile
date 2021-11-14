@@ -6,10 +6,6 @@ ruby '2.6.8'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
 # Use sqlite3 as the database for Active Record
-<<<<<<< HEAD
-
-=======
->>>>>>> 6476026d3ff7f92fd438c7387180941626620559
 group :development do
   gem 'sqlite3'
 end
